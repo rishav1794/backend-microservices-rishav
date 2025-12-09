@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from app.routes.user_routes import router as user_router
 
 app = FastAPI(title="User Service", version="1.0.0")
 
@@ -16,3 +17,5 @@ def health_check():
             "service": "user-service"
         }
     )
+
+app.include_router(user_router)
